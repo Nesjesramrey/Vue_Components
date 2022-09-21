@@ -1,20 +1,23 @@
 <template>
-  <div>
-    <ModalOne/>
-  </div>
+  <div>{{ text }}</div>
 </template>
 
 <script>
-import ModalOne from "./components/Modal-one.vue";
-
-
 export default {
   name: "App",
-  components: { ModalOne },
   data() {
     return {
-      show: false,
+      text: "Hola Vue",
     };
+  },
+  beforeCreate() {
+    console.log("BeforeCreate", this.$data, this.$el);
+  },
+  created() {
+    console.log("Create", this.$data, this.$el);
+  },
+  mounted() {
+    console.log("mounted", this.$data, this.$el);
   },
 };
 </script>
@@ -28,5 +31,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>
